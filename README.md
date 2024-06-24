@@ -1,10 +1,12 @@
 # Product Service
 
-### Project Description
+---
+
+## Project Description
 
 This project is a RESTful API for managing products, built using Node.js. The API will allow consumers to create, update, delete, and retrieve products.
 
-# Technical assumptions
+## Technical assumptions
 
 - **Language and Framework:** The API will be built using NestJS, with
 - **Database:** MongoDB(cloud.mongodb) with Mongoose as an ODM (Object Data Modeling) library.
@@ -120,13 +122,13 @@ To run the application using Docker Compose, you need Docker and Docker Compose 
 Build run the application using Docker Compose
 
 ```bash
-$ docker-compose up --build -d
+$ docker compose up --build -d
 ```
 
 Note: to stop the applications just run:
 
 ```bash
-$ docker-compose down
+$ docker compose down
 ```
 
 #### Run it Manually
@@ -163,7 +165,7 @@ To run the application using Docker, you need Docker installed. Follow these ste
 
 API unit test were created using jest
 
-### Run Unit tests (Jest)
+#### Run Unit tests (Jest)
 
 From the root `project-folder` run all the tests:
 
@@ -181,7 +183,7 @@ swagger
 
 http://localhost:5000/apispec
 
-### Port Conflict
+#### Port Conflict
 
 If you encounter port conflicts, it might be due to other applications using the same ports. Before running the application, ensure that ports `5000` is available. If not, you can modify the port bindings in the Dockerfile and in the docker-compose.yml file.
 
@@ -207,4 +209,4 @@ If you encounter port conflicts, it might be due to other applications using the
 
 ## Author
 
-### `Adilson Mendes`
+#### `Adilson Mendes`
