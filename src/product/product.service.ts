@@ -6,9 +6,8 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Product, ProductDocument } from '../providers/schemas/product.schema';
 import { ProductDTO } from './dto/product.dto';
-import { ProductType } from './entity/product';
+import { Product, ProductDocument } from './schemas/product.schema';
 
 @Injectable()
 export class ProductService {
@@ -20,11 +19,11 @@ export class ProductService {
     this.logger = new Logger(ProductService.name);
   }
 
-  async create(product: ProductDTO): Promise<ProductType> {
+  async create(product: ProductDTO): Promise<Product> {
     return await this.productModel.create(product);
   }
 
-  async findByName(name: string): Promise<ProductType[]> {
+  async findByName(name: string): Promise<Product[]> {
     if (!name) {
       throw new BadRequestException('Name parameter is required');
     }
@@ -32,11 +31,7 @@ export class ProductService {
     return await this.productModel.find(caseInsensitiveQuery);
   }
 
-  async findById(productId: string): Promise<ProductType> {
-    if (!productId) {
-      throw new BadRequestException('productId parameter is required');
-    }
-
+  async findById(productId: string): Promise<Product> {
     const product = await this.productModel.findById(productId);
     if (!product) {
       throw new NotFoundException(`Product with ID ${productId} not found`);
@@ -45,11 +40,11 @@ export class ProductService {
     return product;
   }
 
-  async findAll(): Promise<ProductType[]> {
+  async findAll(): Promise<Product[]> {
     return await this.productModel.find();
   }
 
-  async update(id: string, updateProductDto: ProductDTO): Promise<ProductType> {
+  async update(id: string, updateProductDto: ProductDTO): Promise<Product> {
     const updatedProduct = await this.productModel.findByIdAndUpdate(
       id,
       updateProductDto,

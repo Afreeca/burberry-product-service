@@ -30,6 +30,7 @@ class EnvironmentVariables {
   AUTH0_DOMAIN?: string;
 
   constructor(config: Partial<EnvironmentVariables>) {
+    console.log('this: ', this);
     Object.assign(this, config);
   }
 }
@@ -53,7 +54,7 @@ export function validate(config: Record<string, unknown>) {
 
   if (errors?.length > 0) {
     throw new Error(
-      `${errors.toString()} \n******** Please ensure that the .dev.env file is correctly created and configured.*****\n`,
+      `${errors.toString()} \n******** Please ensure that the .dev.env or .env(prod) file is correctly created and configured.*****\n`,
     );
   }
 

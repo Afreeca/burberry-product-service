@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import * as jwt from 'express-jwt';
 import { expressJwtSecret } from 'jwks-rsa';
-import { ConfigService } from 'src/config/ConfigService';
 import { promisify } from 'util';
+import { ConfigService } from '../config/ConfigService';
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {

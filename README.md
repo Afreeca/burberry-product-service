@@ -207,6 +207,10 @@ If you encounter port conflicts, it might be due to other applications using the
 - [express-jwt](https://www.npmjs.com/package/express-jwt)
   - Express middleware for validating JWTs
 
+# Useful articles
+
+- [How To Strongly Type process.env](https://www.totaltypescript.com/how-to-strongly-type-process-env)
+
 ## Author
 
 #### `Adilson Mendes`
