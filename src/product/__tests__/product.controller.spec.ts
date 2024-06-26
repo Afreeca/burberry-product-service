@@ -7,10 +7,10 @@ import { ProductService } from '../product.service';
 import { Product } from '../schemas/product.schema';
 import { mockProducts } from './__mock__/product.mock';
 
-describe('AccountController', () => {
+describe('ProductController', () => {
   let controller: ProductController;
   let productService: ProductService;
-  let response;
+  let response: any;
 
   const mockService = {
     create: jest.fn(),
@@ -31,8 +31,8 @@ describe('AccountController', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProductController],
       providers: [
+        ConfigService,
         { provide: ProductService, useValue: mockService },
-        { provide: ConfigService, useValue: mockService },
       ],
       imports: [AuthorizationModule],
     }).compile();
